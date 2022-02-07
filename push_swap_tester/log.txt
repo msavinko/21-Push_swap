@@ -1,0 +1,61 @@
+
+########## TEST    1 ##########
+
+ARGS:
+10 4 8 
+
+OUTPUT:
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 1     
+
+########## TEST    2 ##########
+
+ARGS:
+4 2 3 
+
+OUTPUT:
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 1     
+
+########## TEST    3 ##########
+
+ARGS:
+8 7 3 
+
+OUTPUT:
+ra
+sa
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 2     
+
+########## TEST    4 ##########
+
+ARGS:
+6 2 9 
+
+OUTPUT:
+sa
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 1     
+
+########## TEST    5 ##########
+
+ARGS:
+2 7 10 
+
+OUTPUT:
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 0     
+
