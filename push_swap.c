@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:27:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/04 18:11:54 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:59:28 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,13 @@ void	ft_print_arr(int *array, int len)
 	printf("\n");
 }
 
-int	ft_array_len(char **array)
-{
-	int	i;
-
-	i = 0;
-	if (!array)
-		return (0);
-	while (array[i])
-		i++;
-	return (i);
-}
-
 int	main(int argc, char **argv)
 {
 	char	**new_array;
 
 	if (argc > 2)
 	{
-		if (ft_check(&argv[1]))
-			ft_push_swap(&argv[1]);
+		ft_check(&argv[1]);
 	}
 	else if (argc == 2)
 	{
@@ -53,14 +40,20 @@ int	main(int argc, char **argv)
 		if (ft_array_len(new_array) == 1)
 		{
 			if (ft_isint(new_array[0]))
+			{
+				//free new array here;
 				exit(0);
+			}
 			else
+			{
+				//free new array here
 				ft_error(1);
+			}
 		}
 		else
 		{
-			if (ft_check(&new_array[0]))
-				ft_push_swap(&new_array[0]);
+			ft_check(&new_array[0]);
+			//free new array here
 		}
 	}
 	else
