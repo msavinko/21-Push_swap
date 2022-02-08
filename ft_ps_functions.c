@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:55:21 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/03 17:45:17 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:43:37 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_push(t_pslist **stack_a, t_pslist **stack_b, int stack_num)
 		return ;
 	one_a = *stack_a;
 	one_b = *stack_b;
-	*stack_a = one_a->next;
+	*stack_a = (*stack_a)->next;
 	one_a->next = one_b;
 	*stack_b = one_a;
 	if (stack_num == 1)
@@ -41,7 +41,7 @@ void	ft_swap(t_pslist **stack, int flag, int stack_num)
 	one = *stack;
 	two = (*stack)->next;
 	three = (*stack)->next->next;
-	*stack = one->next;
+	*stack = (*stack)->next;
 	two->next = one;
 	one->next = three;
 	if (flag != 2)
@@ -62,7 +62,7 @@ void	ft_rotate(t_pslist **stack, int flag, int stack_num)
 		return ;
 	first = *stack;
 	last = ft_pslstlast(*stack);
-	*stack = first->next;
+	*stack = (*stack)->next;
 	last->next = first;
 	first->next = NULL;
 	if (flag != 2)

@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:20:05 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/07 15:57:55 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:14:17 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	ft_array_len(char **array)
 	int	i;
 
 	i = 0;
-	while(array[i])
+	while (array[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 int	ft_ps_atoi(const char *str)
@@ -37,7 +37,6 @@ int	ft_ps_atoi(const char *str)
 	i = 0;
 	num = 0;
 	sign = 1;
-
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -114,11 +113,10 @@ int	ft_check_sort(int *new_array, int len)
 		else
 			return (1);
 	}
-
 	return (0);
 }
 
-void ft_swap_int(int *one, int *two)
+void	ft_swap_int(int *one, int *two)
 {
 	int	tmp;
 
@@ -129,7 +127,7 @@ void ft_swap_int(int *one, int *two)
 
 int	ft_find_med(int *array, int len)
 {
-	int med;
+	int	med;
 	int	i;
 	int	*new_array;
 
@@ -140,14 +138,12 @@ int	ft_find_med(int *array, int len)
 		new_array[i] = array[i];
 		i++;
 	}
-
 	i = 0;
 	while ((ft_check_sort(new_array, len)))
 	{
 		i = 0;
 		while (i < len - 1)
 		{
-			
 			if (new_array[i] > new_array[i + 1])
 				ft_swap_int(&new_array[i], &new_array[i + 1]);
 			i++;
@@ -157,11 +153,12 @@ int	ft_find_med(int *array, int len)
 	free(new_array);
 	return (med);
 }
+
 void	ft_create_int_array_and_check_sort(char **array, int len)
 {
 	int	i;
 	int	*new_array;
-	int med;
+	int	med;
 
 	i = 0;
 	new_array = malloc(len * sizeof(int));
@@ -170,7 +167,6 @@ void	ft_create_int_array_and_check_sort(char **array, int len)
 		new_array[i] = ft_ps_atoi(array[i]);
 		i++;
 	}
-
 	ft_check_repeat(new_array, len);
 	if (ft_check_sort(new_array, len))
 	{

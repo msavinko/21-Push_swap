@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:27:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/07 15:59:28 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:12:49 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,36 +26,55 @@ void	ft_print_arr(int *array, int len)
 	printf("\n");
 }
 
-int	main(int argc, char **argv)
+//=======================
+
+void	ft_free_char(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+		i++;
+	i--;
+	while (i >= 0)
+	{
+		free(array[i]);
+		i--;
+	}
+	free(array);
+}
+
+void	ft_check_2arg(char *array)
 {
 	char	**new_array;
 
-	if (argc > 2)
+	new_array = ft_split(array, ' ');
+	if (ft_array_len(new_array) == 1)
 	{
-		ft_check(&argv[1]);
-	}
-	else if (argc == 2)
-	{
-		new_array = ft_split(argv[1], ' ');
-		if (ft_array_len(new_array) == 1)
+		if (ft_isint(new_array[0]))
 		{
-			if (ft_isint(new_array[0]))
-			{
-				//free new array here;
-				exit(0);
-			}
-			else
-			{
-				//free new array here
-				ft_error(1);
-			}
+			ft_free_char(new_array);
+			exit(0);
 		}
 		else
 		{
-			ft_check(&new_array[0]);
-			//free new array here
+			ft_free_char(new_array);
+			ft_error(1);
 		}
 	}
+	else
+	{
+		ft_check(&new_array[0]);
+		ft_free_char(new_array);
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc > 2)
+		ft_check(&argv[1]);
+	else if (argc == 2)
+		ft_check_2arg(argv[1]);
 	else
 		return (0);
 }

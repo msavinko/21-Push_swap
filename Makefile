@@ -7,7 +7,7 @@ HEADER	=	push_swap.h
 
 SRCS	=	push_swap.c ft_check.c\
 			ft_pslist.c ft_ps_functions.c\
-			ft_ps_sort.c ft_ps_utils.c
+			ft_ps_sort.c 
 
 OBJS	=	$(SRCS:.c=.o)
 

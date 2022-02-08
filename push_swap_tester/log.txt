@@ -2,23 +2,22 @@
 ########## TEST    1 ##########
 
 ARGS:
-2 52 46 
+3 1 2 
 
 OUTPUT:
-rra
-sa
+ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 2     
+MOVES: 1     
 
 ########## TEST    2 ##########
 
 ARGS:
-45 22 92 
+5 3 4 
 
 OUTPUT:
-sa
+ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
@@ -27,7 +26,7 @@ MOVES: 1
 ########## TEST    3 ##########
 
 ARGS:
-11 22 21 
+3 5 4 
 
 OUTPUT:
 rra
@@ -40,7 +39,32 @@ MOVES: 2
 ########## TEST    4 ##########
 
 ARGS:
-42 76 14 
+0 5 2 
+
+OUTPUT:
+rra
+sa
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 2     
+
+########## TEST    5 ##########
+
+ARGS:
+3 0 2 
+
+OUTPUT:
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 1     
+
+########## TEST    6 ##########
+
+ARGS:
+1 4 0 
 
 OUTPUT:
 rra
@@ -49,46 +73,23 @@ CHECKERS:
 mac:  OK, lnx: N/A
 MOVES: 1     
 
-########## TEST    5 ##########
+########## TEST    7 ##########
 
 ARGS:
-18 32 95 
+3 5 4 
 
 OUTPUT:
-
-CHECKERS:
-mac:  OK, lnx: N/A
-MOVES: 0     
-
-########## TEST    6 ##########
-
-ARGS:
-89 84 2 
-
-OUTPUT:
-ra
+rra
 sa
 
 CHECKERS:
 mac:  OK, lnx: N/A
 MOVES: 2     
 
-########## TEST    7 ##########
-
-ARGS:
-53 10 19 
-
-OUTPUT:
-ra
-
-CHECKERS:
-mac:  OK, lnx: N/A
-MOVES: 1     
-
 ########## TEST    8 ##########
 
 ARGS:
-52 26 81 
+3 1 4 
 
 OUTPUT:
 sa
@@ -100,19 +101,20 @@ MOVES: 1
 ########## TEST    9 ##########
 
 ARGS:
-90 15 47 
+0 3 1 
 
 OUTPUT:
-ra
+rra
+sa
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 1     
+MOVES: 2     
 
 ########## TEST   10 ##########
 
 ARGS:
-21 48 51 
+0 2 5 
 
 OUTPUT:
 

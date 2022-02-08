@@ -6,15 +6,30 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:25:56 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/07 15:53:48 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:43:31 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_print_stack(t_pslist *stack, char c)
+{
+	int			i;
+	t_pslist	*current;
 
+	i = 0;
+	current = stack;
+	if (!stack)
+		return ;
+	printf("\n----Stack %c----\n", c);
+	while (stack != NULL)
+	{
+		printf("%d\n", stack->value);
+		stack = stack->next;
+	}
+}
 
-t_pslist *ft_pslstlast(t_pslist *lst)
+t_pslist	*ft_pslstlast(t_pslist *lst)
 {
 	while (lst)
 	{
@@ -25,7 +40,7 @@ t_pslist *ft_pslstlast(t_pslist *lst)
 	return (lst);
 }
 
-t_pslist *ft_ps_one_before_lstlast(t_pslist *lst)
+t_pslist	*ft_ps_one_before_lstlast(t_pslist *lst)
 {
 	while (lst)
 	{
@@ -36,9 +51,9 @@ t_pslist *ft_ps_one_before_lstlast(t_pslist *lst)
 	return (lst);
 }
 
-int ft_pslstsize(t_pslist *lst)
+int	ft_pslstsize(t_pslist *lst)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (lst)
@@ -52,9 +67,9 @@ int ft_pslstsize(t_pslist *lst)
 	return (i);
 }
 
- void ft_pslstadd_back(t_pslist **lst, t_pslist *new)
+void	ft_pslstadd_back(t_pslist **lst, t_pslist *new)
 {
-	t_pslist *elem;
+	t_pslist	*elem;
 
 	elem = *lst;
 	if (elem)
@@ -67,37 +82,39 @@ int ft_pslstsize(t_pslist *lst)
 		*lst = new;
 }
 
-t_pslist *ft_create_list(int *array, int med, int len)
+t_pslist	*ft_create_list(int *array, int med, int len)
 {
-	t_pslist *stack_a;
-	t_pslist *current;
-	int i;
+	t_pslist	*stack;
+	t_pslist	*current;
+	int			i;
 
-	i = 1;
-	stack_a = malloc(sizeof(t_pslist));
-	if (!stack_a)
-		ft_error(1);
-	stack_a->value = array[0];
-	stack_a->med = med;
-	stack_a->next = NULL;
-	current = stack_a;
-	while (i < len)
+	i = len - 1;
+	stack = NULL;
+	while (i >= 0)
 	{
 		current = malloc(sizeof(t_pslist));
 		if (!current)
 			ft_error(1);
-		current->value = array[i++];
+		current->value = array[i];
 		current->med = med;
-		current->next = NULL;
-		ft_pslstadd_back(&stack_a, current);
+		current->move = 0;
+		current->ra = 0;
+		current->rb = 0;
+		current->rra = 0;
+		current->rrb = 0;
+		current->rr = 0;
+		current->rrr = 0;
+		current->next = stack;
+		stack = current;
+		i--;
 	}
-	return (stack_a);
+	return (stack);
 }
 
 int	ft_find_min(t_pslist *stack)
 {
 	int	min;
-	
+
 	if (!(stack))
 		return (0);
 	min = INT_MAX;
@@ -109,10 +126,11 @@ int	ft_find_min(t_pslist *stack)
 	}
 	return (min);
 }
+
 int	ft_find_max(t_pslist *stack)
 {
 	int	max;
-	
+
 	if (!(stack))
 		return (0);
 	max = INT_MIN;
@@ -125,7 +143,21 @@ int	ft_find_max(t_pslist *stack)
 	return (max);
 }
 
-void ft_push_swap(int *array, int med, int len)
+void	ft_ps_lstclear(t_pslist **stack)
+{
+	t_pslist	*next_el;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		next_el = (*stack)->next;
+		free(*stack);
+		*stack = next_el;
+	}
+}
+
+void	ft_push_swap(int *array, int med, int len)
 {
 	int			min;
 	int			max;
@@ -137,24 +169,13 @@ void ft_push_swap(int *array, int med, int len)
 	stack_b = NULL;
 	max = ft_find_max(stack_a);
 	min = ft_find_min(stack_a);
-	
 	stack_len = ft_pslstsize(stack_a);
-
-	printf ("stack_len: %d\n", stack_len);
-	printf("max: %d and min: %d and med: %d\n", max, min, stack_a->med);
-	// ft_print_stack(stack_a, 'A');
-	// ft_print_stack(stack_b, 'B');
-	// printf("=======================\n");
-
 	if (stack_len == 2)
 		ft_swap(&stack_a, 1, 1);
 	else if (stack_len == 3)
 		ft_sort_three(&stack_a);
 	else if (stack_len <= 100)
 		ft_sort_hundred(&stack_a, &stack_b, min, max);
-
-	
-	// ft_print_stack(stack_a, 'A');
-	// ft_print_stack(stack_b, 'B');
-	// printf("=======================\n");
+	ft_ps_lstclear(&stack_a);
+	exit(0);
 }
