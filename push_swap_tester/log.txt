@@ -2,123 +2,437 @@
 ########## TEST    1 ##########
 
 ARGS:
-3 1 2 
+599 449 440 233 213 
 
 OUTPUT:
+ra
+pb
+pb
+sa
+ra
+ra
+pa
+ra
+pa
+ra
 ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 1     
+MOVES: 11    
 
 ########## TEST    2 ##########
 
 ARGS:
-5 3 4 
+333 284 773 263 334 
 
 OUTPUT:
+pb
+pb
+ra
+ra
+pa
+ra
+pa
+ra
+ra
 ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 1     
+MOVES: 10    
 
 ########## TEST    3 ##########
 
 ARGS:
-3 5 4 
+127 837 642 859 600 
 
 OUTPUT:
+pb
+pb
 rra
-sa
-
-CHECKERS:
-mac:  OK, lnx: N/A
-MOVES: 2     
-
-########## TEST    4 ##########
-
-ARGS:
-0 5 2 
-
-OUTPUT:
-rra
-sa
-
-CHECKERS:
-mac:  OK, lnx: N/A
-MOVES: 2     
-
-########## TEST    5 ##########
-
-ARGS:
-3 0 2 
-
-OUTPUT:
+sb
+pa
+ra
+ra
+ra
+pa
+ra
 ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 1     
+MOVES: 11    
+
+########## TEST    4 ##########
+
+ARGS:
+732 801 585 173 26 
+
+OUTPUT:
+pb
+ra
+pb
+sa
+ra
+ra
+pa
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 11    
+
+########## TEST    5 ##########
+
+ARGS:
+781 49 551 623 835 
+
+OUTPUT:
+pb
+pb
+pa
+ra
+ra
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 9     
 
 ########## TEST    6 ##########
 
 ARGS:
-1 4 0 
+762 204 973 160 342 
 
 OUTPUT:
-rra
+pb
+pb
+ra
+ra
+pa
+ra
+ra
+pa
+ra
+ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 1     
+MOVES: 10    
 
 ########## TEST    7 ##########
 
 ARGS:
-3 5 4 
+399 287 744 445 837 
 
 OUTPUT:
-rra
+pb
+pb
 sa
+pa
+ra
+pa
+ra
+ra
+ra
+ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 2     
+MOVES: 10    
 
 ########## TEST    8 ##########
 
 ARGS:
-3 1 4 
+496 426 609 786 152 
 
 OUTPUT:
-sa
+pb
+pb
+rra
+ra
+pa
+ra
+pa
+ra
+ra
+ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 1     
+MOVES: 10    
 
 ########## TEST    9 ##########
 
 ARGS:
-0 3 1 
+385 447 637 318 305 
 
 OUTPUT:
-rra
+pb
+pb
+ra
 sa
+sb
+ra
+ra
+pa
+ra
+pa
+ra
+ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 2     
+MOVES: 12    
 
 ########## TEST   10 ##########
 
 ARGS:
-0 2 5 
+157 985 309 972 684 
 
 OUTPUT:
+pb
+ra
+pb
+sa
+sb
+pa
+ra
+pa
+ra
+ra
+ra
+ra
 
 CHECKERS:
 mac:  OK, lnx: N/A
-MOVES: 0     
+MOVES: 12    
+
+########## TEST   11 ##########
+
+ARGS:
+899 749 805 175 360 
+
+OUTPUT:
+ra
+pb
+pb
+sb
+ra
+ra
+pa
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 11    
+
+########## TEST   12 ##########
+
+ARGS:
+143 719 669 472 230 
+
+OUTPUT:
+pb
+ra
+pb
+sa
+sb
+pa
+ra
+ra
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 12    
+
+########## TEST   13 ##########
+
+ARGS:
+375 267 621 38 542 
+
+OUTPUT:
+pb
+pb
+ra
+ra
+pa
+ra
+pa
+ra
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 10    
+
+########## TEST   14 ##########
+
+ARGS:
+166 466 630 452 124 
+
+OUTPUT:
+pb
+pb
+ra
+sa
+sb
+ra
+pa
+ra
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 12    
+
+########## TEST   15 ##########
+
+ARGS:
+368 534 125 895 170 
+
+OUTPUT:
+pb
+pb
+rra
+sa
+sb
+ra
+ra
+pa
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 12    
+
+########## TEST   16 ##########
+
+ARGS:
+921 84 839 43 972 
+
+OUTPUT:
+pb
+pb
+sa
+ra
+pa
+ra
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 10    
+
+########## TEST   17 ##########
+
+ARGS:
+265 616 936 433 394 
+
+OUTPUT:
+pb
+pb
+ra
+sa
+sb
+pa
+ra
+ra
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 12    
+
+########## TEST   18 ##########
+
+ARGS:
+521 58 385 226 979 
+
+OUTPUT:
+pb
+pb
+sa
+pa
+ra
+ra
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 10    
+
+########## TEST   19 ##########
+
+ARGS:
+903 710 259 812 454 
+
+OUTPUT:
+ra
+pb
+pb
+sa
+pa
+ra
+ra
+pa
+ra
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 11    
+
+########## TEST   20 ##########
+
+ARGS:
+581 877 899 172 537 
+
+OUTPUT:
+pb
+pb
+ra
+sb
+ra
+ra
+pa
+ra
+pa
+ra
+ra
+
+CHECKERS:
+mac:  OK, lnx: N/A
+MOVES: 11    
 

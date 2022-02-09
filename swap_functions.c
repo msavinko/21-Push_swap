@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ps_functions.c                                  :+:      :+:    :+:   */
+/*   swap_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:55:21 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/08 16:43:37 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/09 15:58:44 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_swap(t_pslist **stack, int flag, int stack_num)
 	*stack = (*stack)->next;
 	two->next = one;
 	one->next = three;
-	if (flag != 2)
+	if (flag != 0)
 	{
 		if (stack_num == 1)
 			write(1, "sa\n", 3);
@@ -65,7 +65,7 @@ void	ft_rotate(t_pslist **stack, int flag, int stack_num)
 	*stack = (*stack)->next;
 	last->next = first;
 	first->next = NULL;
-	if (flag != 2)
+	if (flag != 0)
 	{
 		if (stack_num == 1)
 			write(1, "ra\n", 3);
@@ -88,7 +88,7 @@ void	ft_rev_rotate(t_pslist **stack, int flag, int stack_num)
 	*stack = three;
 	three->next = one;
 	two->next = NULL;
-	if (flag != 2)
+	if (flag != 0)
 	{
 		if (stack_num == 1)
 			write(1, "rra\n", 4);
@@ -97,21 +97,24 @@ void	ft_rev_rotate(t_pslist **stack, int flag, int stack_num)
 	}
 }
 
-void	ft_double(t_pslist **stack_a, t_pslist **stack_b,
+void	ft_double(t_pslist **stack_a, t_pslist **stack_b, int flag,
 	void (*ft_action)(t_pslist **stack, int flag, int stack_num))
 {
-	int	flag;
+	int	print_flag;
 
-	flag = 2;
+	print_flag = 0;
 	if (!(*stack_a) || !(*stack_b) || ft_pslstsize(*stack_a) < 2
 		|| ft_pslstsize(*stack_b) < 2)
 		return ;
-	ft_action(stack_a, flag, 1);
-	ft_action(stack_b, flag, 2);
-	if (ft_action == ft_swap)
-		write(1, "ss\n", 3);
-	else if (ft_action == ft_rotate)
-		write(1, "rr\n", 3);
-	else if (ft_action == ft_rev_rotate)
-		write(1, "rrr\n", 4);
+	ft_action(stack_a, print_flag, 1);
+	ft_action(stack_b, print_flag, 2);
+	if (flag != 0)
+	{
+		if (ft_action == ft_swap)
+			write(1, "ss\n", 3);
+		else if (ft_action == ft_rotate)
+			write(1, "rr\n", 3);
+		else if (ft_action == ft_rev_rotate)
+			write(1, "rrr\n", 4);
+	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pslist.c                                        :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:25:56 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/08 16:43:31 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:43:52 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,8 +174,12 @@ void	ft_push_swap(int *array, int med, int len)
 		ft_swap(&stack_a, 1, 1);
 	else if (stack_len == 3)
 		ft_sort_three(&stack_a);
+	else if (stack_len <= 5)
+		ft_sort_five(&stack_a, &stack_b, min, max);
 	else if (stack_len <= 100)
 		ft_sort_hundred(&stack_a, &stack_b, min, max);
+	if (ft_if_pre_sorted(&stack_a, ft_pslstsize(stack_a), min, max))
+		ft_final_sort(&stack_a, min);
 	ft_ps_lstclear(&stack_a);
 	exit(0);
 }

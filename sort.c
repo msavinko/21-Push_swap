@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ps_sort.c                                       :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:34:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/08 17:18:26 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/09 17:34:41 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,65 @@ int	ft_if_sorted(t_pslist **stack, int len)
 	}
 	return (1);
 }
-// int	ft_pre_sorted(t_pslist *stack, int size)
-// {
-// 	t_pslist	*current;
 
-// 	current = stack;
-// 	while (size-- > 0)
-// 	{
+int	ft_if_pre_sorted(t_pslist **stack, int len, int min, int max)
+{
+	t_pslist	*current;
 
-// 	}
-// 	return 
-// }
-// void	ft_count_movements(t_pslist **stack_a, t_pslist **stack_b)
-// {
-// 	(*stack_a)->ra = 0;
-// 	(*stack_b)->rb = 0;
+	if (!stack)
+		return (0);
+	current = *stack;
+	while (len-- > 1)
+	{
+		if (current->value < current->next->value)
+			current = current->next;
+		else if (current->value == max && current->next->value == min)
+			current = current->next;
+		else
+			return (0);
+	}
+	return (1);
+}
 
-// 	//printf("RA: %d", (*stack_a)->ra);
-// }
+void	ft_final_sort(t_pslist **stack, int min)
+{
+	if (!stack)
+		return ;
+	while ((*stack)->value != min)
+		ft_rotate(stack, 1, 1);
+}
 
-// void	ft_choose_b(t_pslist **stack_a, t_pslist **stack_b)
-// {
-// 	ft_count_movements(stack_a, stack_b);
-// }
+void	ft_sort_five(t_pslist **stack_a, t_pslist **stack_b, int min, int max)
+{
+	while (ft_pslstsize(*stack_a) > 3)
+	{
+		if ((*stack_a)->value != max)
+			ft_push(stack_a, stack_b, 2);
+		else
+			ft_rotate(stack_a, 1, 1);
+	}
+	if (!(ft_if_sorted(stack_a, ft_pslstsize(*stack_a))))
+		ft_sort_three(stack_a);
+	if ((*stack_b)->value > (*stack_b)->next->value)
+		ft_swap(stack_b, 1, 2);
+	while (*stack_b != NULL)
+	{
+		if (((*stack_b)->value < (*stack_a)->value
+				&& (*stack_b)->value > ft_pslstlast(*stack_a)->value)
+			|| (*stack_b)->value == min)
+			ft_push(stack_b, stack_a, 1);
+		else if ((*stack_b)->value > (*stack_a)->value)
+			ft_rotate(stack_a, 1, 1);
+		else
+			ft_rev_rotate(stack_a, 1, 1);
+	}
+}
 
 void	ft_sort_hundred(t_pslist **stack_a, t_pslist **stack_b,
 		int min, int max)
 {
 	int	size_a;
+	int	size_b;
 
 	size_a = ft_pslstsize(*stack_a);
 	while (size_a-- > 0)
@@ -99,19 +130,22 @@ void	ft_sort_hundred(t_pslist **stack_a, t_pslist **stack_b,
 	}
 	if (!(ft_if_sorted(stack_a, ft_pslstsize(*stack_a))))
 		ft_sort_three(stack_a);
-	//size_b = ft_pslstsize(*stack_b);
-	// ft_pre_sorted(stack_a, ft_pslstsize(*stack_a));
-	// ft_sorted(stack_a, ft_pslstsize(*stack_a));
-	// size_b = ft_pslstsize(*stack_b);
-	// while (size_b-- > 0)
-	// {
-	// 	ft_push(stack_b, stack_a, 1);
-	// }
-	//size of stack_a and stack_b;
-	//create function check_sort_stack;
-	//create function pre_sort_stack;
-	// ft_sort_three(stack_b);
+	ft_rotate(stack_a, 1, 1);
+	
+	size_b = ft_pslstsize(*stack_b);
+
 	ft_print_stack(*stack_a, 'A');
 	ft_print_stack(*stack_b, 'B');
-	printf("=======================\n");
+	printf("=====================\n");
+
+	// while (size_b-- > 0)
+	// {
+
+		ft_choose_b(stack_a, stack_b);
+
+	// }
+	
+	ft_print_stack(*stack_a, 'A');
+	ft_print_stack(*stack_b, 'B');
+	printf("=====================\n");
 }
