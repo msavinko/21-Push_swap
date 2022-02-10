@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:25:56 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/09 14:43:52 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/10 17:30:57 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,13 @@ t_pslist	*ft_create_list(int *array, int med, int len)
 			ft_error(1);
 		current->value = array[i];
 		current->med = med;
-		current->move = 0;
-		current->ra = 0;
-		current->rb = 0;
-		current->rra = 0;
-		current->rrb = 0;
-		current->rr = 0;
-		current->rrr = 0;
+		current->move = -1;
+		current->ra = -1;
+		current->rb = -1;
+		current->rra = -1;
+		current->rrb = -1;
+		current->rr = -1;
+		current->rrr = -1;
 		current->next = stack;
 		stack = current;
 		i--;
@@ -176,10 +176,19 @@ void	ft_push_swap(int *array, int med, int len)
 		ft_sort_three(&stack_a);
 	else if (stack_len <= 5)
 		ft_sort_five(&stack_a, &stack_b, min, max);
-	else if (stack_len <= 100)
+	else
 		ft_sort_hundred(&stack_a, &stack_b, min, max);
+	// ft_print_stack(stack_a, 'A');
+	// ft_print_stack(stack_b, 'B');
+	// printf("=====================\n");
+
 	if (ft_if_pre_sorted(&stack_a, ft_pslstsize(stack_a), min, max))
 		ft_final_sort(&stack_a, min);
+
+	// ft_print_stack(stack_a, 'A');
+	// ft_print_stack(stack_b, 'B');
+	// printf("=====================\n");
+
 	ft_ps_lstclear(&stack_a);
 	exit(0);
 }

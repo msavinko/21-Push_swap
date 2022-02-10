@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:30:28 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/09 15:43:29 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:48:12 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		ft_rev_rotate(t_pslist **stack, int flag, int stack_num);
 void		ft_double(t_pslist **stack_a, t_pslist **stack_b, int flag, void (*ft_action)
 				(t_pslist **stack, int flag, int stack_num));
 
-//sort.c norminette (COMMENTS) (SORT FIVE WITH 15 MOVES)
+//sort.c norminette (COMMENTS) 
 void		ft_sort_three(t_pslist **stack);
 void		ft_sort_five(t_pslist **stack_a, t_pslist **stack_b, int min, int max);
 void		ft_sort_hundred(t_pslist **stack_a, t_pslist **stack_b, int min, int max);
@@ -82,8 +82,14 @@ void		ft_final_sort(t_pslist **stack, int min);
 //void	ft_count_movements(t_pslist **stack_a, t_pslist **stack_b);
 
 //sort_utils.c
+void		ft_clean_moves(t_pslist **stack);
 void		ft_scenario_one(t_pslist **stack_a, t_pslist **stack_b);
 void		ft_choose_b(t_pslist **stack_a, t_pslist **stack_b);
-
+int			ft_count_ra(t_pslist **stack_a, int num);
+int			ft_count_rra(t_pslist **stack_a, int num, int size_a);
+void		ft_count_moves(t_pslist **stack_b, int len);
+int			ft_min_moves(int num_one, int num_two);
+t_pslist	*ft_find_min_move(t_pslist **stack, int len);
+void		ft_move_elt(t_pslist **stack_a, t_pslist **stack_b);
 
 #endif

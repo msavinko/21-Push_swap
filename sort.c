@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:34:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/09 17:34:41 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:18:46 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,22 +130,26 @@ void	ft_sort_hundred(t_pslist **stack_a, t_pslist **stack_b,
 	}
 	if (!(ft_if_sorted(stack_a, ft_pslstsize(*stack_a))))
 		ft_sort_three(stack_a);
-	ft_rotate(stack_a, 1, 1);
+//	ft_rotate(stack_a, 1, 1);
+//	ft_rev_rotate(stack_a, 1, 1);
 	
 	size_b = ft_pslstsize(*stack_b);
 
-	ft_print_stack(*stack_a, 'A');
-	ft_print_stack(*stack_b, 'B');
-	printf("=====================\n");
+	// ft_print_stack(*stack_a, 'A');
+	// ft_print_stack(*stack_b, 'B');
+	// printf("=====================\n");
 
-	// while (size_b-- > 0)
-	// {
-
+	while (size_b-- > 0)
+	{
+		ft_clean_moves(stack_b);
 		ft_choose_b(stack_a, stack_b);
+		ft_move_elt(stack_a, stack_b);
+		ft_push(stack_b, stack_a, 1);
 
-	// }
+		// printf("=====================\n");
+	}
 	
-	ft_print_stack(*stack_a, 'A');
-	ft_print_stack(*stack_b, 'B');
-	printf("=====================\n");
+
+
+
 }
