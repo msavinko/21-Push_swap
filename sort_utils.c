@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:56:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/10 17:28:17 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/11 16:50:09 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,44 +43,60 @@ int	ft_count_ra(t_pslist **stack_a, int num)
 		return (i);
 	else
 	{
-		while (num < current->value)
+		if (num < current->value)
 		{
-			i++;
-			current = current->next;
+			while (num < current->value)
+			{
+				i++;
+				current = current->next;
+			}
+			while (num > current->value)
+			{
+				i++;
+				current = current->next;
+			}
+			return (i);
 		}
-		while (num > current->value)
+		else if (num > current->value)
 		{
-			i++;
-			current = current->next;
+			while (num > current->value)
+			{
+				i++;
+				current = current->next;
+			}
+			return (i);
 		}
+		// ITS HERE!!! WRONG 
 	}
 	return (i);
 }
 
-int	ft_count_rra(t_pslist **stack_a, int num, int size_a)
-{
-	int			i;
-	t_pslist	*current;
+// int	ft_count_rra(t_pslist **stack_a, int num, int size_a)
+// {
+// 	int			i;
+// 	t_pslist	*current;
 
-	i = 0;
-	current = *stack_a;
-	if (num > ft_pslstlast(current)->value && num < current->value)
-		return (i);
-	else
-	{
-		while (num < current->value)
-		{
-			i++;
-			current = current->next;
-		}
-		while (num > current->value)
-		{
-			i++;
-			current = current->next;
-		}
-	}
-	return (size_a - i);
-}
+// 	i = 0;
+// 	current = *stack_a;
+// 	if (num > ft_pslstlast(current)->value && num < current->value)
+// 		return (i);
+// 	else
+// 	{
+// 		while (num < current->value)
+// 		{
+// 			i++;
+// 			current = current->next;
+// 		}
+// 		while (num > current->value)
+// 		{
+// 			i++;
+// 			current = current->next;
+// 		}
+// 			// ITS HERE!!! WRONG 
+// 	}
+// 	return (size_a - i);
+// 	//rra = size_a - ra;
+// }
 
 int	ft_min_moves(int num_one, int num_two)
 {
@@ -114,6 +130,7 @@ void	ft_count_moves(t_pslist **stack_b, int len)
 
 void	ft_choose_b(t_pslist **stack_a, t_pslist **stack_b)
 {
+//	int			size_a;
 	int			size_b;
 	int			i;
 	int			len;
@@ -121,6 +138,7 @@ void	ft_choose_b(t_pslist **stack_a, t_pslist **stack_b)
 
 	i = 0;
 	current = *stack_b;
+//	size_a = ft_pslstsize(*stack_a);
 	size_b = ft_pslstsize(*stack_b);
 	len = size_b;
 	while (len--)
@@ -129,8 +147,7 @@ void	ft_choose_b(t_pslist **stack_a, t_pslist **stack_b)
 //		printf("RA: %d\n", current->ra);
 		current->rb = i;
 //		printf("RB: %d\n", current->rb);
-		current->rra = ft_count_rra(stack_a,
-				current->value, ft_pslstsize(*stack_a));
+		current->rra = ft_pslstsize(*stack_a) - current->ra;
 //		printf("RRA: %d\n", current->rra);
 		if (i != 0)
 			current->rrb = size_b - i;
@@ -187,8 +204,8 @@ void	ft_choose_b(t_pslist **stack_a, t_pslist **stack_b)
 		// printf("RRR: %d\n", current->rrr);
 		// printf("+++++++++++++++\n");
 
-		current = current->next;
 		i++;
+		current = current->next;
 	}
 	ft_count_moves(stack_b, size_b);
 	// current = *stack_b;
@@ -212,8 +229,7 @@ t_pslist	*ft_find_min_move(t_pslist **stack, int len)
 	{
 		if (min_move->move > current->move)
 			min_move = current;
-		else
-			current = current->next;
+		current = current->next;
 	}
 	return (min_move);
 }
@@ -242,20 +258,29 @@ void	ft_move_elt(t_pslist **stack_a, t_pslist **stack_b)
 //NUMBER: 414 MOVES: 1
 // ra: 0, rra: 0, rb: 0, rrb: 3, rr: 1, rrr : 5
 
+//+++++++++++++++
+
+//THE PROGRAMM DOES NOT PERFORM THE ACTIONS OF BEST SCENARIO
+
+//+++++++++++++++
+
+	int	one = current->rr + current->ra + current->rb;
+	int	two = current->rrr + current->rra + current->rrb;
 	if (current->move == 0)
 		return ;
-	if (current->rr < current->rrr && current->rr > 0)
+	if (one < two)
+//	(current->rr < current->rrr && current->rr > 0) // COUNT SUM OF RR AND IF (RR+RA+RB < RRR+RRA+RRB) GO FURTHER
 	{
 		i = current->rr;
 		while (i--)
 			ft_double(stack_a, stack_b, 1, ft_rotate);
-		if (current->ra)
+		if (current->ra > 0)
 		{
 			i = current->ra;
 			while (i--)
 				ft_rotate(stack_a, 1, 1);
 		}
-		if (current->rb)
+		if (current->rb > 0)
 		{
 			i = current->rb;
 			while (i--)
@@ -268,13 +293,13 @@ void	ft_move_elt(t_pslist **stack_a, t_pslist **stack_b)
 		i = current->rrr;
 		while (i--)
 			ft_double(stack_a, stack_b, 1, ft_rev_rotate);
-		if (current->rra)
+		if (current->rra > 0)
 		{
 			i = current->rra;
 			while (i--)
 				ft_rev_rotate(stack_a, 1, 1);
 		}
-		if (current->rrb)
+		if (current->rrb > 0)
 		{
 			i = current->rrb;
 			while (i--)

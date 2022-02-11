@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:34:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/10 15:18:46 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/11 14:29:52 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,31 @@ int	ft_if_pre_sorted(t_pslist **stack, int len, int min, int max)
 
 void	ft_final_sort(t_pslist **stack, int min)
 {
+	int	i;
+	int	len;
+	t_pslist	*current;
+
 	if (!stack)
 		return ;
-	while ((*stack)->value != min)
-		ft_rotate(stack, 1, 1);
+	i = 0;
+	len = ft_pslstsize(*stack);
+	current = *stack;
+	while (current->value != min)
+	{
+		i++;
+		current = current->next;
+	}
+	//current = *stack;
+	if (i < len / 2)
+	{
+		while ((*stack)->value != min)
+			ft_rotate(stack, 1, 1);
+	}
+	else
+	{
+		while ((*stack)->value != min)
+			ft_rev_rotate(stack, 1, 1);
+	}
 }
 
 void	ft_sort_five(t_pslist **stack_a, t_pslist **stack_b, int min, int max)

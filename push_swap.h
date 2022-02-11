@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:30:28 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/10 15:48:12 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/11 17:36:37 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,3 +93,6 @@ t_pslist	*ft_find_min_move(t_pslist **stack, int len);
 void		ft_move_elt(t_pslist **stack_a, t_pslist **stack_b);
 
 #endif
+
+//pip3 install push_swap_gui
+//python3 -m push_swap_gui
