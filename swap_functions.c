@@ -6,13 +6,13 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:55:21 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/09 15:58:44 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/14 19:02:48 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_pslist **stack_a, t_pslist **stack_b, int stack_num)
+void	ft_push(t_pslist **stack_a, t_pslist **stack_b, int flag, int stack_num)
 {
 	t_pslist	*one_a;
 	t_pslist	*one_b;
@@ -24,10 +24,13 @@ void	ft_push(t_pslist **stack_a, t_pslist **stack_b, int stack_num)
 	*stack_a = (*stack_a)->next;
 	one_a->next = one_b;
 	*stack_b = one_a;
-	if (stack_num == 1)
-		write(1, "pa\n", 3);
-	else if (stack_num == 2)
-		write(1, "pb\n", 3);
+	if (flag != 0)
+	{
+		if (stack_num == 1)
+			write(1, "pa\n", 3);
+		else if (stack_num == 2)
+			write(1, "pb\n", 3);
+	}
 }
 
 void	ft_swap(t_pslist **stack, int flag, int stack_num)
