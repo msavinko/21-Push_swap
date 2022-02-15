@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:08:14 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 17:55:44 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/15 18:32:33 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	get_next_line(char **line)
 	result = read(0, &buffer[i], 1);
 	while (result > 0 && buffer[i] != '\n')
 	{
-		result = read(0, &buffer[i], 1);
 		i++;
-	}
+		result = read(0, &buffer[i], 1);
+	}	
 	buffer[i] = '\0';
 	return (result);
 }

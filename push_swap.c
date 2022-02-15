@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:27:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 18:06:32 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/15 16:50:55 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	ft_check(char **array)
 
 int	main(int argc, char **argv)
 {
-	if (argc > 2)
+	if (argc > 1)
 		ft_check(&argv[1]);
 	else if (argc == 2)
 		ft_check_2arg(argv[1]);

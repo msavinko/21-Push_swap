@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_int.c                                      :+:      :+:    :+:   */
+/*   checker_int_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:56:59 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 16:04:07 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/15 19:01:06 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	ft_check_2arg(char *array)
+void	ft_check_2arg_ch(char *array)
 {
 	char	**new_array;
 
@@ -32,12 +32,12 @@ void	ft_check_2arg(char *array)
 	}
 	else
 	{
-		ft_check(&new_array[0]);
+		ft_check_ch(&new_array[0]);
 		ft_free_char(new_array);
 	}
 }
 
-void	ft_check_repeat(int *new_array, int len)
+void	ft_check_repeat_ch(int *new_array, int len)
 {
 	int	i;
 	int	j;
@@ -56,22 +56,7 @@ void	ft_check_repeat(int *new_array, int len)
 	}
 }
 
-int	ft_check_sort(int *new_array, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len - 1)
-	{
-		if (new_array[i] < new_array[i + 1])
-			i++;
-		else
-			return (1);
-	}
-	return (0);
-}
-
-void	ft_create_int_array_and_check_sort(char **array, int len)
+void	ft_create_int_array_and_check_sort_ch(char **array, int len)
 {
 	int	i;
 	int	*new_array;
@@ -83,14 +68,13 @@ void	ft_create_int_array_and_check_sort(char **array, int len)
 		new_array[i] = ft_ps_atoi(array[i]);
 		i++;
 	}
-	ft_check_repeat(new_array, len);
-	if (ft_check_sort(new_array, len))
-		ft_bonus(new_array, len);
+	ft_check_repeat_ch(new_array, len);
+	ft_bonus(new_array, len);
 	free(new_array);
 	return ;
 }
 
-void	ft_check(char **array)
+void	ft_check_ch(char **array)
 {
 	int	i;
 
@@ -104,5 +88,5 @@ void	ft_check(char **array)
 		else
 			ft_error(1);
 	}
-	ft_create_int_array_and_check_sort(array, ft_array_len(array));
+	ft_create_int_array_and_check_sort_ch(array, ft_array_len(array));
 }

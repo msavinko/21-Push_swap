@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:30:28 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 19:03:04 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/15 18:54:36 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void		ft_ps_lstclear(t_pslist **stack);
 int			ft_find_min(t_pslist *stack);
 int			ft_find_max(t_pslist *stack);
 void		ft_push_swap(int *array, int len);
-void		ft_push(t_pslist **stack_a, t_pslist **stack_b, int flag, int stack_num);
+void		ft_push(t_pslist **stack_a, t_pslist **stack_b, int flag,
+				int stack_num);
 void		ft_swap(t_pslist **stack, int flag, int stack_num);
 void		ft_rotate(t_pslist **stack, int flag, int stack_num);
 void		ft_rev_rotate(t_pslist **stack, int flag, int stack_num);
@@ -82,7 +83,12 @@ void		ft_sc_four(t_pslist *current, t_pslist **stack_a,
 void		ft_move_elt(t_pslist **stack_a, t_pslist **stack_b);
 void		ft_bonus(int *array, int len);
 void		ft_do_checks(char *line, t_pslist **stack_a, t_pslist **stack_b);
-int			ft_if_sorted_ch(t_pslist **stack_a, t_pslist **stack_b, int len);
+int			ft_if_sorted_ch(t_pslist **stack_a, int len);
+
+// void		ft_check_2arg_ch(char *array);
+// void		ft_check_repeat_ch(int *new_array, int len);
+// void		ft_create_int_array_and_check_sort_ch(char **array, int len);
+// void		ft_check_ch(char **array);
 
 #endif
 
