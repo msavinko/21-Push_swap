@@ -6,11 +6,11 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:30:18 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/15 19:01:02 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:00:17 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 t_pslist	*ft_pslstlast(t_pslist *lst)
 {

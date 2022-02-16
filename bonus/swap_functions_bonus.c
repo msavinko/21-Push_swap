@@ -6,11 +6,11 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:55:21 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/15 19:00:50 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:00:25 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	ft_push(t_pslist **stack_a, t_pslist **stack_b, int flag, int stack_num)
 {

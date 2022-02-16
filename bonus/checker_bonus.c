@@ -6,11 +6,11 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:08:07 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/15 19:01:10 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:00:10 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 int	ft_if_sorted_ch(t_pslist **stack_a, int len)
 {

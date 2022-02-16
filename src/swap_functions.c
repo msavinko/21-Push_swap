@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:55:21 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 19:02:48 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/16 10:31:10 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ void	ft_double(t_pslist **stack_a, t_pslist **stack_b, int flag,
 	int	print_flag;
 
 	print_flag = 0;
-	if (!(*stack_a) || !(*stack_b) || ft_pslstsize(*stack_a) < 2
-		|| ft_pslstsize(*stack_b) < 2)
-		return ;
+	// if (!(*stack_a) || !(*stack_b) || ft_pslstsize(*stack_a) < 2
+	// 	|| ft_pslstsize(*stack_b) < 2)
+	// 	return ;
 	ft_action(stack_a, print_flag, 1);
 	ft_action(stack_b, print_flag, 2);
 	if (flag != 0)

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:51:31 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/15 19:02:57 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:00:39 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
-#ifndef CHECKER_H
-# define CHECKER_H
-
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # define INT_MAX 2147483647

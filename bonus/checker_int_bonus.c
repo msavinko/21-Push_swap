@@ -6,11 +6,11 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:56:59 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/15 19:01:06 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:00:13 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	ft_check_2arg_ch(char *array)
 {

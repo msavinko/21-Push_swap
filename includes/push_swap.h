@@ -6,18 +6,20 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:30:28 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/15 18:54:36 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:22:57 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # define INT_MAX 2147483647
 # define INT_MIN -2147483647
+
+
 
 typedef struct s_pslist
 {
@@ -84,6 +86,7 @@ void		ft_move_elt(t_pslist **stack_a, t_pslist **stack_b);
 void		ft_bonus(int *array, int len);
 void		ft_do_checks(char *line, t_pslist **stack_a, t_pslist **stack_b);
 int			ft_if_sorted_ch(t_pslist **stack_a, int len);
+
 
 // void		ft_check_2arg_ch(char *array);
 // void		ft_check_repeat_ch(int *new_array, int len);
