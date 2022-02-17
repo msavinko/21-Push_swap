@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Make"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"checker.h": "c"
+		}
+	}
+}
