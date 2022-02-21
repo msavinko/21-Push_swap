@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:51:31 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/16 11:00:39 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/18 10:21:53 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # define INT_MAX 2147483647
-# define INT_MIN -2147483647
+# define INT_MIN -2147483648
 
 typedef struct s_pslist
 {
@@ -46,19 +46,16 @@ void		ft_error(int error_code);
 void		ft_bonus(int *array, int len);
 void		ft_do_checks(char *line, t_pslist **stack_a, t_pslist **stack_b);
 int			ft_if_sorted_ch(t_pslist **stack_a, int len);
-
 void		ft_check_2arg_ch(char *array);
 void		ft_check_repeat_ch(int *new_array, int len);
 void		ft_create_int_array_and_check_sort_ch(char **array, int len);
 void		ft_check_ch(char **array);
-
-
-void		ft_push(t_pslist **stack_a, t_pslist **stack_b, int flag, int stack_num);
+void		ft_push(t_pslist **stack_a, t_pslist **stack_b, int flag,
+				int stack_num);
 void		ft_swap(t_pslist **stack, int flag, int stack_num);
 void		ft_rotate(t_pslist **stack, int flag, int stack_num);
 void		ft_rev_rotate(t_pslist **stack, int flag, int stack_num);
 void		ft_double(t_pslist **stack_a, t_pslist **stack_b, int flag,
 				void (*ft_action)(t_pslist **stack, int flag, int stack_num));
-
 
 #endif

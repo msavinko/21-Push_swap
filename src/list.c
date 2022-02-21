@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:25:56 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 13:32:09 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/18 10:09:39 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_find_max(t_pslist *stack)
 	return (max);
 }
 
-void	ft_push_swap(int *array, int len)
+void	ft_push_swap(int *array, int len, int med)
 {
 	int			min;
 	int			max;
@@ -52,7 +52,7 @@ void	ft_push_swap(int *array, int len)
 	t_pslist	*stack_a;
 	t_pslist	*stack_b;
 
-	stack_a = ft_create_list(array, len);
+	stack_a = ft_create_list(array, len, med);
 	stack_b = NULL;
 	max = ft_find_max(stack_a);
 	min = ft_find_min(stack_a);
@@ -62,7 +62,7 @@ void	ft_push_swap(int *array, int len)
 	else if (stack_len == 3)
 		ft_sort_three(&stack_a);
 	else
-		ft_sort_five(&stack_a, &stack_b, min, max);
+		ft_sort_all(&stack_a, &stack_b, min, max);
 	if (ft_if_pre_sorted(&stack_a, ft_pslstsize(stack_a), min, max))
 		ft_final_sort(&stack_a, min);
 	ft_ps_lstclear(&stack_a);

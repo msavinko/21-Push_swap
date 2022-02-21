@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:30:18 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 13:33:15 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/18 10:22:57 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,20 @@ int	ft_pslstsize(t_pslist *lst)
 	return (i);
 }
 
-t_pslist	*ft_create_list(int *array, int len)
+t_pslist	*ft_create_list(int *array, int len, int med)
 {
 	t_pslist	*stack;
 	t_pslist	*current;
-	int			i;
 
-	i = len - 1;
+	len = len - 1;
 	stack = NULL;
-	while (i >= 0)
+	while (len >= 0)
 	{
 		current = malloc(sizeof(t_pslist));
 		if (!current)
 			ft_error(1);
-		current->value = array[i];
+		current->value = array[len];
+		current->med = med;
 		current->scenario = 0;
 		current->move = -1;
 		current->ra = -1;
@@ -74,7 +74,7 @@ t_pslist	*ft_create_list(int *array, int len)
 		current->rrr = -1;
 		current->next = stack;
 		stack = current;
-		i--;
+		len--;
 	}
 	return (stack);
 }

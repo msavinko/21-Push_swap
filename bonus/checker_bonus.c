@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:08:07 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/16 11:00:10 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/17 16:30:32 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,27 @@ int	ft_if_sorted_ch(t_pslist **stack_a, int len)
 
 void	ft_do_checks(char *line, t_pslist **stack_a, t_pslist **stack_b)
 {
-	if (!(ft_strncmp(line, "rra", 3)))
+	if (!(ft_strncmp(line, "rra", 4)))
 		ft_rev_rotate(stack_a, 0, 1);
-	else if (!(ft_strncmp(line, "rrb", 3)))
+	else if (!(ft_strncmp(line, "rrb", 4)))
 		ft_rev_rotate(stack_b, 0, 2);
-	else if (!(ft_strncmp(line, "rrr", 3)))
+	else if (!(ft_strncmp(line, "rrr", 4)))
 		ft_double(stack_a, stack_b, 0, ft_rev_rotate);
-	else if (!(ft_strncmp(line, "sa", 2)))
+	else if (!(ft_strncmp(line, "sa", 3)))
 		ft_swap(stack_a, 0, 1);
-	else if (!(ft_strncmp(line, "sb", 2)))
+	else if (!(ft_strncmp(line, "sb", 3)))
 		ft_swap(stack_b, 0, 2);
-	else if (!(ft_strncmp(line, "ss", 2)))
+	else if (!(ft_strncmp(line, "ss", 3)))
 		ft_double(stack_a, stack_b, 0, ft_swap);
-	else if (!(ft_strncmp(line, "ra", 2)))
+	else if (!(ft_strncmp(line, "ra", 3)))
 		ft_rotate(stack_a, 0, 1);
-	else if (!(ft_strncmp(line, "rb", 2)))
+	else if (!(ft_strncmp(line, "rb", 3)))
 		ft_rotate(stack_b, 0, 2);
-	else if (!(ft_strncmp(line, "rr", 2)))
+	else if (!(ft_strncmp(line, "rr", 3)))
 		ft_double(stack_a, stack_b, 0, ft_rotate);
-	else if (!(ft_strncmp(line, "pb", 2)))
+	else if (!(ft_strncmp(line, "pb", 3)))
 		ft_push(stack_a, stack_b, 0, 2);
-	else if (!(ft_strncmp(line, "pa", 2)))
+	else if (!(ft_strncmp(line, "pa", 3)))
 		ft_push(stack_b, stack_a, 0, 1);
 	else
 		ft_error(1);

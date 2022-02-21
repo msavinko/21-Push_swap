@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 13:34:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 19:04:57 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/18 10:39:33 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,16 +102,20 @@ void	ft_final_sort(t_pslist **stack, int min)
 	}
 }
 
-void	ft_sort_five(t_pslist **stack_a, t_pslist **stack_b, int min, int max)
+void	ft_sort_all(t_pslist **stack_a, t_pslist **stack_b, int min, int max)
 {
 	int	size_b;
+	int	size_a;
 
+	size_a = ft_pslstsize(*stack_a);
 	while (ft_pslstsize(*stack_a) > 3)
 	{
 		if ((*stack_a)->value == min || (*stack_a)->value == max)
 			ft_rotate(stack_a, 1, 1);
 		else
 			ft_push(stack_a, stack_b, 1, 2);
+		if (ft_pslstsize(*stack_b) > 2 && (*stack_b)->value > (*stack_b)->med)
+			ft_rotate(stack_b, 1, 2);
 	}
 	if (!(ft_if_sorted(stack_a, ft_pslstsize(*stack_a))))
 		ft_sort_three(stack_a);

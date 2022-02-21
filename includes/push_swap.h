@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 10:30:28 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/16 11:22:57 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/18 10:08:24 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 # define INT_MAX 2147483647
-# define INT_MIN -2147483647
-
-
+# define INT_MIN -2147483648
 
 typedef struct s_pslist
 {
 	int				value;
 	int				move;
+	int				med;
 	int				scenario;
 	int				ra;
 	int				rb;
@@ -35,6 +34,8 @@ typedef struct s_pslist
 	struct s_pslist	*next;
 }					t_pslist;
 
+void		ft_swap_int(int *one, int *two);
+int			ft_find_med(int *array, int len);
 void		ft_free_char(char **array);
 void		ft_check_2arg(char *array);
 int			ft_array_len(char **array);
@@ -47,11 +48,11 @@ void		ft_check(char **array);
 t_pslist	*ft_pslstlast(t_pslist *lst);
 t_pslist	*ft_ps_one_before_lstlast(t_pslist *lst);
 int			ft_pslstsize(t_pslist *lst);
-t_pslist	*ft_create_list(int *array, int len);
+t_pslist	*ft_create_list(int *array, int len, int med);
 void		ft_ps_lstclear(t_pslist **stack);
 int			ft_find_min(t_pslist *stack);
 int			ft_find_max(t_pslist *stack);
-void		ft_push_swap(int *array, int len);
+void		ft_push_swap(int *array, int len, int med);
 void		ft_push(t_pslist **stack_a, t_pslist **stack_b, int flag,
 				int stack_num);
 void		ft_swap(t_pslist **stack, int flag, int stack_num);
@@ -63,7 +64,7 @@ void		ft_sort_three(t_pslist **stack);
 int			ft_if_sorted(t_pslist **stack, int len);
 int			ft_if_pre_sorted(t_pslist **stack, int len, int min, int max);
 void		ft_final_sort(t_pslist **stack, int min);
-void		ft_sort_five(t_pslist **stack_a, t_pslist **stack_b,
+void		ft_sort_all(t_pslist **stack_a, t_pslist **stack_b,
 				int min, int max);
 void		ft_clean_moves(t_pslist **stack);
 int			ft_count_ra(t_pslist **stack_a, int num);
@@ -87,19 +88,4 @@ void		ft_bonus(int *array, int len);
 void		ft_do_checks(char *line, t_pslist **stack_a, t_pslist **stack_b);
 int			ft_if_sorted_ch(t_pslist **stack_a, int len);
 
-
-// void		ft_check_2arg_ch(char *array);
-// void		ft_check_repeat_ch(int *new_array, int len);
-// void		ft_create_int_array_and_check_sort_ch(char **array, int len);
-// void		ft_check_ch(char **array);
-
 #endif
-
-//pip3 install push_swap_gui
-//python3 -m push_swap_gui
-
-//or
-//python3 pyviz.py `ruby -e "puts (00..50).to_a.shuffle.join(' ')"`
-
-//ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
-//ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_Mac $ARG

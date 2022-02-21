@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:56:59 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/16 11:00:13 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/21 12:46:47 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_check_2arg_ch(char *array)
 	{
 		if (ft_isint(new_array[0]))
 		{
+			ft_check_ch(&new_array[0]);
 			ft_free_char(new_array);
 			exit(0);
 		}
@@ -34,6 +35,7 @@ void	ft_check_2arg_ch(char *array)
 	{
 		ft_check_ch(&new_array[0]);
 		ft_free_char(new_array);
+		exit(0);
 	}
 }
 

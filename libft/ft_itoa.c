@@ -6,13 +6,11 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 13:26:39 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/03 16:28:29 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:03:51 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static int	ft_len(long int num)
 {

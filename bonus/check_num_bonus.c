@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:28:12 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/16 11:00:04 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:05:38 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_ps_atoi(const char *str)
 {
 	unsigned int			i;
 	int						sign;
-	unsigned long long int	num;
+	long long int			num;
 
 	i = 0;
 	num = 0;
@@ -63,11 +63,11 @@ int	ft_ps_atoi(const char *str)
 		ft_error(1);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (num > 9223372036854775807 && sign == 1)
-			return (-1);
-		if (num > 9223372036854775807 && sign == -1)
-			return (0);
 		num = num * 10 + (str[i++] - '0');
+		if (num > INT_MAX && sign == 1)
+			ft_error(1);
+		if (num > 2147483648 && sign == -1)
+			ft_error(1);
 	}
 	return ((int)(num * sign));
 }
@@ -79,7 +79,7 @@ int	ft_isint(char *str)
 
 	num = 0;
 	i = 0;
-	if (ft_strlen(str) > 12)
+	if (ft_strlen(str) > 13)
 		ft_error(1);
 	while (str[i])
 	{
@@ -94,8 +94,5 @@ int	ft_isint(char *str)
 		else
 			ft_error(1);
 	}
-	if (num > INT_MAX || num < INT_MIN)
-		return (0);
-	else
-		return (1);
+	return (1);
 }
